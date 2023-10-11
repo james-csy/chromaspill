@@ -14,10 +14,15 @@ df = pd.read_csv(csv_file)
 #print(df.head())
 #print(df.columns)
 
-df.plot.scatter(x = "lat", y = "lon", c='max_ptl_release_gallons')
-df.plot.scatter(x = "lat", y = "lon", c='measure_disperse')
-df.plot.scatter(x = "lat", y = "lon", c='measure_burn')
-df.plot.scatter(x = "lat", y = "lon", c='measure_bio')
+#define subplot layout
+fig, axes = plt.subplots(nrows=2, ncols=2)
+
+#add DataFrames to subplots
+
+df.plot.scatter(x = "lat", y = "lon", c='max_ptl_release_gallons', ax=axes[0,0])
+df.plot.scatter(x = "lat", y = "lon", c='measure_disperse', ax=axes[0,1])
+df.plot.scatter(x = "lat", y = "lon", c='measure_burn', ax=axes[1,0])
+df.plot.scatter(x = "lat", y = "lon", c='measure_bio', ax=axes[1,1])
 plt.show()
 
 
